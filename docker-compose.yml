@@ -1,7 +1,9 @@
 services:
   redis:
-    image: redis:7-alpine
-    command: ["redis-server","--appendonly","yes"]
+    image: redis/redis-stack-server:latest
+    environment:
+      REDIS_ARGS: "--appendonly yes"
+    ports: ["6379:6379"]
     volumes: [redis_data:/data]
     healthcheck:
       test: ["CMD","redis-cli","ping"]
