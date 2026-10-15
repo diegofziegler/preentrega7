@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server","--appendonly","yes"]
+    volumes: [redis_data:/data]
+    healthcheck:
+      test: ["CMD","redis-cli","ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    ports: ["6006:6006","4317:4317"]
+  api:
+    build: .
+    env_file: [.env]
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006/v1/traces
+    ports: ["8000:8000"]
+    depends_on:
+      redis: {condition: service_healthy}
+      phoenix: {condition: service_started}
+    volumes:
+      - ./vectorstore:/app/vectorstore
+      - ./data:/app/data:ro
+volumes:
+  redis_data:

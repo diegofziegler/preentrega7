@@ -1,5 +1,10 @@
 # Pre-entrega 7: API de producción y monitoreo activo
 
+## Herramienta de gestión del proyecto
+
+Usa uv para gestionar el entorno Python, las dependencias y los comandos de ejecución del proyecto. Mantén pyproject.toml y uv.lock como fuentes de configuración y bloqueo de dependencias; documenta los comandos uv en el README. Evita usar pip directamente para gestionar dependencias.
+
+
 ## Qué construir
 
 Debes entregar el código fuente de una **API REST (FastAPI)** que exponga tu sistema multi-agente desarrollado en el Módulo 6, con las siguientes capacidades nuevas:
@@ -81,3 +86,4 @@ Entregable
 
 
  
+

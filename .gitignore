@@ -1,32 +1,16 @@
-<<<<<<< HEAD
-# Python-generated files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*.egg-info/
 build/
 dist/
-wheels/
-*.egg-info
-
-# Test / tooling caches
-.pytest_cache/
-*.pyc
-
-# Configuracion local de herramientas
-.claude/
-
-# Virtual environments
-.venv
+.venv/
 .env
 .env.*
 !.env.example
-*.db
-log/
-
-=======
-__pycache__/
-*.pyc
-.venv/
+.pytest_cache/
+.claude/
 vectorstore/
-log/*.log
-.env
->>>>>>> jules-7783662967289170240-d8863f5f
+log/
+*.db
+!screenshots/.gitkeep
+
